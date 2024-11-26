@@ -1,15 +1,22 @@
 function bubbleSort(array) {
-  for (let index1 = 0; index1 < array.length; index1++) {
-    for (let index2 = 0; index2 < array.length; index2++) {
+  let swappingCount = 0;
+  let arrayLength = array.length;
+  for (let index1 = 0; index1 < arrayLength; index1++) {
+    for (let index2 = 0; index2 < arrayLength; index2++) {
       if (array[index2] > array[index2 + 1]) {
-        let temp = array[index1];
-        array[index1] = array[index2];
-        array[index2] = temp;
+        let temp = array[index2];
+        array[index2] = array[index2 + 1];
+        array[index2 + 1] = temp;
+        swappingCount++;
       }
-      // console.log(array);
+      if (index2 == arrayLength && swappingCount != 0) {
+        console.log(index1);
+        return array;
+      }
     }
   }
   return array;
 }
 
-console.log("final:", bubbleSort([5, 1, 22, 25, 6, -1, 8, 10]));
+console.log("final:", bubbleSort([5, 1, 25, 22, 6, -1, 8, 10]));
+console.log("final:", bubbleSort([-1, 1, 5, 6, 8, 10, 22, 25]));
