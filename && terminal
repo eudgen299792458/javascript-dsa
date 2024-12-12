@@ -28,21 +28,19 @@ class SinglyLinkedList{
 
 	traverse(){
 		var current = this.head
-		let head = this.head
-		let lastNodeBeforeTail;
 		while (current){
-			lastNodeBeforeTail = current
+		//	console.log(current)
 			current = current.next
 		}
-		return { head, lastNodeBeforeTail, tail: current }
+		return current
 	}
 
 	pop(){
-		console.log("poping: ", this.tail);
+		console.log("poping", this.tail);
 		this.tail = null;
-		const {lastNodeBeforeTail} = this.traverse();
-		this.tail = lastNodeBeforeTail;
-		console.log(this.tail);
+		console.log("traversing and poping");
+		this.tail = traverse();
+		console.log(this.tail)
 	}
 }
 
