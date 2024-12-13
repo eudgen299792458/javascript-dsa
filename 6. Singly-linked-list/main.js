@@ -159,17 +159,15 @@ class SinglyLinkedList {
   }
 
   reverse() {
-    const reverseList = new SinglyLinkedList();
-    reverseList.tail = this.head;
-    reverseList.head = this.tail;
-    reverseList.length = this.length;
+    let collectNode = [];
+    // while()
     return reverseList;
   }
 
   validateIndex(index) {
     if (this.length == 0) return "Err: cannot set to empty list";
     if (index > this.length) return "Err: index greater than list length";
-    if (index < 0) return "Err: provide index ≥ 0";
+    if (index < 0) return "Err: index must be ≥ 0";
   }
 }
 
@@ -186,8 +184,8 @@ list.push("5");
 // console.log(list.unshift(6));
 // console.log(list.get(1));
 // console.log(list.set("AA", 2));
-// console.log(list.insert("A", 2));
+// console.log(list.insert("A", -1));
 // console.log(list.remove(1));
 
 // list.traverse();
-console.log(list.reverse());
+// console.log(list.reverse());
