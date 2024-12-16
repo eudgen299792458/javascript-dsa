@@ -37,16 +37,25 @@ class DoublyLinkedList {
   }
 
   shift() {
+    if (!this.head) return undefined;
+    if (this.head === this.tail) {
+      this.head = null;
+      this.tail = null;
+      this.length--;
+      return this;
+    }
+
     const nodeAfterHead = this.head.next;
     nodeAfterHead.prev = null;
     this.head = nodeAfterHead;
     this.length--;
   }
 
+  unshift() {}
+
   traverse(direction = "forward") {
     const directionStatus = direction === "forward" ? true : false;
     let currentNode = directionStatus ? this.head : this.tail;
-
     if (directionStatus) {
       while (currentNode.next) {
         console.log("Node: ", currentNode);
@@ -58,7 +67,6 @@ class DoublyLinkedList {
         currentNode = currentNode.prev;
       }
     }
-
     console.log("Node: ", currentNode);
   }
 
