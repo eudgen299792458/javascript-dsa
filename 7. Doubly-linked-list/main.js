@@ -137,6 +137,17 @@ class DoublyLinkedList {
     return;
   }
 
+  reverse() {
+    const oldhead = this.head;
+    this.head = this.tail;
+    let currentNode = this.head;
+    while (currentNode.next != oldhead) {
+      const temp = currentNode.next;
+      currentNode.next = currentNode.prev;
+      currentNode.prev = temp;
+    }
+  }
+
   traverse(direction = "forward") {
     const directionStatus = direction === "forward" ? true : false;
     let currentNode = directionStatus ? this.head : this.tail;
@@ -201,6 +212,9 @@ dlist.set("set-20", 2);
 dlist.remove(2);
 
 // display
+dlist.reverse();
 dlist.display();
+dlist.head;
+dlist.tail;
 // dlist.display("backward");
 // console.log("length: ", dlist.length);

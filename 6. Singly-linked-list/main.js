@@ -1,11 +1,11 @@
-class Node {
+export class Node {
   constructor(val) {
     this.value = val;
     this.next = null;
   }
 }
 
-class SinglyLinkedList {
+export class SinglyLinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
