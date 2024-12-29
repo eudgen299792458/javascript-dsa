@@ -12,27 +12,22 @@ class BinaryHeap {
     // bubbling and inserting
     this.#heap.push(value);
     this.length++;
-    let currentParentIndex = Math.floor((this.length - 2) / 2);
+    let nth = this.length - 1;
+    let currentParentIndex = Math.floor((nth - 1) / 2);
     while (currentParentIndex >= 0) {
       const currentParentValue = this.#heap[currentParentIndex];
 
       if (currentParentValue < value) {
-        if (
-          this.#heap[2 * currentParentIndex + 1] &&
-          2 * currentParentIndex + 1 === this.length - 1
-        ) {
+        // left
+        if (2 * currentParentIndex + 1 == nth) {
           this.#heap[currentParentIndex] = value;
           this.#heap[2 * currentParentIndex + 1] = currentParentValue;
-          return;
         }
 
-        if (
-          this.#heap[2 * currentParentIndex + 2] &&
-          2 * currentParentIndex + 2 === this.length - 1
-        ) {
+        // right
+        if (2 * currentParentIndex + 2 == nth) {
           this.#heap[currentParentIndex] = value;
           this.#heap[2 * currentParentIndex + 2] = currentParentValue;
-          return;
         }
       }
       currentParentIndex = Math.floor((currentParentIndex - 2) / 2);
@@ -49,7 +44,8 @@ heap.insert(10);
 heap.insert(50);
 heap.insert(51);
 heap.insert(45);
-heap.insert(30);
-// heap.insert(60);
-// heap.insert(65);
-console.log("heap: ", heap.getHeap(), heap.length);
+heap.insert(55);
+heap.insert(60);
+heap.insert(65);
+heap.insert(80);
+console.log("heap, length: ", heap.getHeap(), heap.length);
