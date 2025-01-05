@@ -12,7 +12,7 @@ function hash(key, arrayLen) {
 }
 
 // test
-const HASH_TABLE_SIZE = 3;
+const HASH_TABLE_SIZE = 8;
 for (const key of [
   "keya",
   "keyb",
